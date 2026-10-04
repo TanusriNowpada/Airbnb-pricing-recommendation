@@ -27,13 +27,13 @@ Hosts must decide how much to charge per night. Price varies with location, room
 
 ## Data
 
-- **Source:** [ADD DATASET NAME, LINK AND LICENSE HERE]
+- **Source:** Kaggle dataset [ADD DATASET TITLE, AUTHOR AND LINK HERE]. License listed on the Kaggle page: Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0). The Kaggle page has no description, so the original origin of the data is not documented.
 - **Size:** 74,111 listings and 29 columns in the raw file; **74,110 listings** after cleaning.
 - **Cities:** San Francisco, Washington DC, Boston, Los Angeles, New York City, Chicago.
 - **Target:** `log_price` (natural log of the nightly price). Results are converted back to dollars with `exp()`.
 - **Not in this dataset:** minimum nights and availability.
 
-The raw and cleaned data files are not included in this repository because of their size and license.
+The raw and cleaned data files are not included in this repository because of their size (about 100 MB). Download the raw file from the Kaggle page above.
 
 ---
 
@@ -113,7 +113,23 @@ The model is most reliable for typical listings ($50 to $250). It tends to overe
 
 ---
 
-The Power BI file and the listing-level predictions file are not included, because the dataset's license has not been confirmed. The screenshots show the dashboard.
+## Repository structure
+
+```
+airbnb-pricing-recommendation/
+├── README.md
+├── sql/
+│   ├── setup_and_load.sql
+│   └── analysis.sql
+├── notebooks/
+│   └── airbnb_eda_model.ipynb
+├── outputs/
+│   ├── model_predictions.csv
+│   └── feature_importance.csv
+└── screenshots/
+```
+
+`model_predictions.csv` (test-set predictions and price ranges) is created by the last cells of the notebook and feeds Page 3 of the dashboard. The Power BI file is not included because of its size (about 37 MB), so the screenshots show the dashboard.
 
 ## How to reproduce
 
